@@ -51,48 +51,7 @@ R"({
   //print(student, len);
   EXPECT_TRUE(flag);
 }
-TEST(WFile, Mass1){
-  string string_t =\
-R"({
-  "items": [
-    {
-      "name": "Ivanov Petr",
-      "group": "1",
-      "avg": "4.25",
-      "debt": null
-    },
-    {
-      "name": "Sidorov Ivan",
-      "group": 31,
-      "avg": 4,
-      "debt": "C++"
-    },
-    {
-      "name": "Pertov Nikita",
-      "group": "IU8-31",
-      "avg": 3.33,
-      "debt": [
-        "C++"
-      ]
-    }
-  ],
-  "_meta": {
-    "count": 3
-  }
-})";
-  size_t len[4] = {11, 3, 3, 11};
-  json data;
-  string File = "Students.json";
-  std :: ofstream students;
-  students.open(File, std::ios::out);
-  students << string_t;
-  students.close();
-  std::vector<Student> student = parser(File, len, data);
-  bool flag = input(File, data);
-  std::string table_out = print(student, len);
-    std::cout << table_out;
-  EXPECT_TRUE(flag);
-}
+
 TEST(WFile, Emptynis) {
   string string_t =\
 R"({
@@ -382,9 +341,57 @@ R"(| name            | group     | avg       | debt          |
   students.close();
   std::vector<Student> student = parser(FileF, len, data);
   std::string table_out = print(student, len);
+  EXPECT_EQ(table_out, table_t);
+}
 
-  //EXPECT_TRUE(true);
-  //std::cout << table_t;
-  //std::string table_origin = ;
+TEST(WFile, Mass1){
+  string string_t =\
+R"({
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "debt": null
+    },
+    {
+      "name": "Sidorov Ivan",
+      "group": 31,
+      "avg": 4,
+      "debt": "C++"
+    },
+    {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 3
+  }
+})";
+  string table_t =\
+R"(| name            | group     | avg       | debt          |
+|-----------------|-----------|-----------|---------------|
+| Ivanov Petr     | 1         | 4.25      | null          |
+|-----------------|-----------|-----------|---------------|
+| Sidorov Ivan    | 31        | 4         | C++           |
+|-----------------|-----------|-----------|---------------|
+| Pertov Nikita   | IU8-31    | 3.33      | C++           |
+|-----------------|-----------|-----------|---------------|
+)";
+  size_t len[4] = {11, 3, 3, 11};
+  json data;
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File, std::ios::out);
+  students << string_t;
+  students.close();
+  std::vector<Student> student = parser(File, len, data);
+  bool flag = input(File, data);
+  std::string table_out = print(student, len);
   EXPECT_EQ(table_out, table_t);
 }
