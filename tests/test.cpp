@@ -378,3 +378,73 @@ R"(| name            | group     | avg       | debt          |
   std::string table_out = print(student, len);
   EXPECT_EQ(table_out, table_t);
 }
+
+TEST(WFile, Mass_long){
+  string string_t =\
+R"({
+  "items": [
+       {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network",
+        "Linux",
+        "Network",
+        "C++",
+        "Linux",
+        "Network"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 1
+  }
+})";
+  string table_t =\
+R"(| name            | group     | avg       | debt          |
+|-----------------|-----------|-----------|---------------|
+| Pertov Nikita   | IU8-31    | 3.33      | C++           |
+|-----------------|-----------|-----------|---------------|
+)";
+  size_t len[4] = {11, 3, 3, 11};
+  json data;
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File, std::ios::out);
+  students << string_t;
+  students.close();
+  std::vector<Student> student = parser(File, len, data);
+  std::string table_out = print(student, len);
+  EXPECT_EQ(table_out, table_t);
+}
