@@ -27,7 +27,7 @@ std::string any_print(const std::any& input) {
               output = std::to_string(size) + " item";
             } else {
               if (size == 1) {
-                output = vector[0];
+                output = vector.size();
               }
             }
           } else {
