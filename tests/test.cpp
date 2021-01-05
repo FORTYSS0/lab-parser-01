@@ -291,6 +291,40 @@ R"({
   }
 }
 
+TEST(EFile, Equalit_false) {
+  string string_f =\
+R"({
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "nedebt": null
+    }
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 1
+  }
+})";
+  json data;
+  size_t len[4] = {11, 3, 3, 11};
+  string FileF = "Student_false.json";
+  std :: ofstream students;
+  students.open(FileF, std::ios::out);
+  students << string_f;
+  students.close();
+  string err =
+      "There is no correct-type field with name: nedebt";
+  try{
+    std::vector<Student> student = parser(FileF, len, data);
+    //input(FileF, data);
+  } catch (std::runtime_error& error) {
+    EXPECT_EQ(error.what(), err);
+  }
+}
+
 TEST(Table, Print_Table) {
   string string_t =\
 R"({
