@@ -51,6 +51,47 @@ R"({
   //print(student, len);
   EXPECT_TRUE(flag);
 }
+TEST(WFile, Mass1){
+  string string_t =\
+R"({
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "debt": null
+    },
+    {
+      "name": "Sidorov Ivan",
+      "group": 31,
+      "avg": 4,
+      "debt": "C++"
+    },
+    {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 3
+  }
+})";
+  size_t len[4] = {11, 3, 3, 11};
+  json data;
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File, std::ios::out);
+  students << string_t;
+  students.close();
+  std::vector<Student> student = parser(File, len, data);
+  bool flag = input(File, data);
+  //print(student, len);
+  EXPECT_TRUE(flag);
+}
 TEST(WFile, Emptynis) {
   string string_t =\
 R"({
