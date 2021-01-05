@@ -299,7 +299,7 @@ R"({
       "name": "Ivanov Petr",
       "group": "1",
       "avg": "4.25",
-      "nedebt": null
+      "debt": error
     }
       ]
     }
@@ -316,7 +316,7 @@ R"({
   students << string_f;
   students.close();
   string err =
-      "There is no correct-type field with name: nedebt";
+      "There is no correct-type field with name: debt";
   try{
     std::vector<Student> student = parser(FileF, len, data);
     //input(FileF, data);
