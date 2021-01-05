@@ -395,7 +395,7 @@ R"({
     "count": 1
   }
 })";
-  string err = "unknown file: Failure\nC++ exception with description \"[json.exception.type_error.302] type must be string, but is number\" thrown in the test body.";
+  string err = "Valu is't string";
   size_t len[4] = {11, 3, 3, 11};
   json data;
   string File = "Students.json";

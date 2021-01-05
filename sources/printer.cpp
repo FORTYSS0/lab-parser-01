@@ -31,8 +31,7 @@ std::string any_print(const std::any& input) {
               }
             }
           } else {
-            std::bad_cast ex;
-            throw ex;
+            throw std::runtime_error("Valu is't string");
           }
         }
       }
