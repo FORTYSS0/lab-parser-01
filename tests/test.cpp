@@ -391,14 +391,7 @@ R"({
         "C++",
         "Linux",
         "Network",
-        "C++",
-        "Linux",
-        "Network",
-        "Linux",
-        "Network",
-        "C++",
-        "Linux",
-        "Network",
+        "C++"
       ]
     }
   ],
