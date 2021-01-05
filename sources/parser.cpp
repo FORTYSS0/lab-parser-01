@@ -38,8 +38,7 @@ size_t Size(const json& data, const string& valueName, size_t& stringLength) {
                 static_cast<std::vector<std::string>>(data.at(valueName))
                     .size())
                 .length()) > stringLength) {
-      return static_cast<size_t>(
-          std::to_string(
+      return static_cast<size_t>(std::to_string(
               static_cast<std::vector<std::string>>(data.at(valueName)).size())
               .length());
     } else {
