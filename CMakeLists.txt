@@ -29,9 +29,13 @@ string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
+hunter_add_package(nlohmann_json)
+find_package(nlohmann_json 3.9.1 CONFIG REQUIRED)
+
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp
 )
 
 add_executable(demo
@@ -51,6 +55,7 @@ if(BUILD_TESTS)
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
   )
   target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
+  target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
   enable_testing()
   add_test(NAME unit_tests COMMAND tests)
 endif()
