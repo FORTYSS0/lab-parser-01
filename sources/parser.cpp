@@ -38,8 +38,6 @@ size_t Size(const json& data, const string& valueName, size_t& stringLength) {
         stringLength) {
       return static_cast<size_t>(
           std::to_string(static_cast<double>(data.at(valueName))).length());
-    } else {
-      return stringLength;
     }
   }
   if (data.at(valueName).is_number_integer()) {
