@@ -358,7 +358,7 @@ R"({
     }
   ],
   "_meta": {
-    "count": 3
+    "count": 1
   }
 })";
   string table_t =\
