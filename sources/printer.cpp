@@ -30,8 +30,6 @@ std::string any_print(const std::any& input) {
                 output = vector[0];
               }
             }
-          } else {
-            throw std::runtime_error("Valu is't string");
           }
         }
       }

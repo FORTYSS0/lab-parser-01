@@ -378,35 +378,3 @@ R"(| name            | group     | avg       | debt          |
   std::string table_out = print(student, len);
   EXPECT_EQ(table_out, table_t);
 }
-TEST(WFile, Mass_err){
-  string string_t =\
-R"({
-  "items": [
-       {
-      "name": "Pertov Nikita",
-      "group": "IU8-31",
-      "avg": 3.33,
-      "debt": [
-        3.33
-      ]
-    }
-  ],
-  "_meta": {
-    "count": 1
-  }
-})";
-  string err = "Valu is't string";
-  size_t len[4] = {11, 3, 3, 11};
-  json data;
-  string File = "Students.json";
-  std :: ofstream students;
-  students.open(File, std::ios::out);
-  students << string_t;
-  students.close();
-  try{
-  std::vector<Student> student = parser(File, len, data);
-  std::string table_out = print(student, len);
-  } catch (std::runtime_error& error) {
-    EXPECT_EQ(error.what(), err);
-  }
-}
