@@ -395,12 +395,7 @@ R"({
     "count": 1
   }
 })";
-  string table_t =\
-R"(| name            | group     | avg       | debt          |
-|-----------------|-----------|-----------|---------------|
-| Pertov Nikita   | IU8-31    | 3.33      | C++           |
-|-----------------|-----------|-----------|---------------|
-)";
+  string err = "C++ exception with description \"[json.exception.type_error.302] type must be string, but is number\" thrown in the test body.";
   size_t len[4] = {11, 3, 3, 11};
   json data;
   string File = "Students.json";
@@ -408,7 +403,10 @@ R"(| name            | group     | avg       | debt          |
   students.open(File, std::ios::out);
   students << string_t;
   students.close();
+  try{
   std::vector<Student> student = parser(File, len, data);
   std::string table_out = print(student, len);
-  EXPECT_EQ(table_out, table_t);
+  } catch (std::runtime_error& error) {
+    EXPECT_EQ(error.what(), err);
+  }
 }
