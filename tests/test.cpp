@@ -89,7 +89,8 @@ R"({
   students.close();
   std::vector<Student> student = parser(File, len, data);
   bool flag = input(File, data);
-  //print(student, len);
+  std::string table_out = print(student, len);
+    std::cout << table_out;
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
@@ -132,6 +133,7 @@ R"({
   students.close();
   std::vector<Student> student = parser(File, len, data);
   bool flag = input(File, data);
+
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Array) {
