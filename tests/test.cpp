@@ -213,7 +213,7 @@ R"({
   string err = "json " + FileF + " the file is empty";
   try{
     std::vector<Student> student = parser(FileF, len, data);
-    input(FileF, data);
+    //input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
   }
@@ -236,7 +236,7 @@ R"({
   string err = "The items field is not an array";
   try{
     std::vector<Student> student = parser(FileF, len, data);
-    input(FileF, data);
+    //input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
   }
@@ -283,7 +283,7 @@ R"({
       "The data in _meta is not equal to the length of the items array";
   try{
     std::vector<Student> student = parser(FileF, len, data);
-    input(FileF, data);
+    //input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
   }
