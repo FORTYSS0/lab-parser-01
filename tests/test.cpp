@@ -291,7 +291,7 @@ R"({
   }
 }
 
-TEST(EFile, No_correct-type) {
+TEST(EFile, No_correct_type) {
   string string_f =\
 R"({
   "items": [
