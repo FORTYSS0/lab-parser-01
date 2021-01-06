@@ -4,7 +4,6 @@
 #include <parser.hpp>
 
 bool input(const string& File, json& data) {
-  //json data;
   std::ifstream file;
   file.open(File);
   if (!file)
