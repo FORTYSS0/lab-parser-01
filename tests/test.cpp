@@ -298,28 +298,12 @@ R"({
     {
       "name": "Ivanov Petr",
       "group": "1",
-      "avg": "4.25",
+      "avg":  null,
       "debt": null
-    },
-    {
-      "name": "Sidorov Ivan",
-      "group": 31,
-      "avg": 4,
-      "debt": "C++"
-    },
-    {
-      "name": "Pertov Nikita",
-      "group": "IU8-31",
-      "avg": 3.33,
-      "debt": [
-        "C++",
-        "Linux",
-        "Network"
-      ]
     }
   ],
   "_meta": {
-    "count": 4
+    "count": 1
   }
 })";
   json data;
@@ -330,7 +314,7 @@ R"({
   students << string_f;
   students.close();
   string err =
-      "There is no correct-type field with name: debt";
+      "There is no correct-type field with name: avg";
   try{
     std::vector<Student> student = parser(FileF, len, data);
     //input(FileF, data);
