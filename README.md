@@ -1,5 +1,10 @@
 # Лабораторная работа № 1
 
+| branch | status |
+|--------|--------|
+| nemaster    |[![Build Status](https://travis-ci.com/FORTYSS0/lab-parser-01.svg?branch=fortyss-parser)](https://travis-ci.com/github/FORTYSS0/lab-parser-01)|
+
+
 ## Задание
 
 Реализовать утилиту табличного вывода массива данных, хранящихся в файле формата **JSON**.<br />
