@@ -68,9 +68,9 @@ std::any getValue(const json& data, const string& valueName,
       if (data.at(valueName).is_array()) {
         stringLength = Size(data, valueName, stringLength);
         return static_cast<std::vector<std::string>>(data.at(valueName));
-      } else if (data.at(valueName).is_null()) {
+      } else /*if (data.at(valueName).is_null()) {
         return nullptr;
-      } else {
+      } else */{
         throw std::runtime_error("There is no correct-type field with name: " +
                                  valueName);
       }
