@@ -410,6 +410,7 @@ R"(| name            | group     | avg       | debt          |
   std::string table_out = print(student, len);
   EXPECT_EQ(table_out, table_t);
 }
+
 TEST(WFile, Imt_long){
   string string_t =\
 R"({
