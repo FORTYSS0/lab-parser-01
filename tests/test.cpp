@@ -299,7 +299,7 @@ R"({
       "name": "Ivanov Petr",
       "group": "1",
       "avg": "4.25",
-      "debt": null
+      "debt": true
     }
       ]
     }
