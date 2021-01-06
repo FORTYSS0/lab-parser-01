@@ -2,8 +2,7 @@
 
 | branch | status |
 |--------|--------|
-| fortyss-parser    |[![Build Status](https://github.com/FORTYSS0/lab-parser-01/workflows/CI/bade.svg)](https://travis-ci.com/github/FORTYSS0/lab-parser-01)|
-
+| fortyss-parser |[![Build Status](https://github.com/FORTYSS0/lab-parser-01/workflows/C..)](https://travis-ci.com/github/FORTYSS0/lab-parser-01)|
 
 ## Задание
 
